@@ -3,23 +3,26 @@ import {FaLinkedinIn,FaGithub,FaEnvelope,FaDownload,FaInstagram} from "react-ico
 import { SiExpress, SiMongodb,SiFigma, SiMysql, SiCplusplus} from "react-icons/si";
 import { DiJavascript1, DiCss3, DiHtml5, DiReact, DiNodejs, DiPython} from "react-icons/di";
 import { motion } from 'framer-motion';
+import { Link } from "react-scroll";
+import "@fontsource/josefin-sans"; 
 import profile1 from '../assets/Bhavi-pro.profile2.jpg';
 import resume from '../assets/Bhavendra Kumar.pdf'; 
 
 const Hero = () => {
   const skills = [
-    { name: "HTML", icon: <DiHtml5 className="text-orange-500 text-5xl" /> },
-    { name: "CSS", icon: <DiCss3 className="text-blue-500 text-5xl" /> },
-    { name: "JavaScript", icon: <DiJavascript1 className="text-yellow-400 text-5xl" /> },
-    { name: "React JS", icon: <DiReact className="text-blue-400 text-5xl" /> },
-    { name: "Node JS", icon: <DiNodejs className="text-green-500 text-5xl" /> },
-    { name: "Express JS", icon: <SiExpress className="text-gray-200 text-5xl" /> },
-    { name: "SQL", icon: <SiMysql className="text-indigo-400 text-5xl" /> },
-    { name: "MongoDB", icon: <SiMongodb className="text-green-600 text-5xl" /> },
-    { name: "Python", icon: <DiPython className="text-yellow-300 text-5xl" /> },
-    { name: "C++", icon: <SiCplusplus className="text-blue-600 text-5xl" /> },
-    { name: "Figma", icon: <SiFigma className="text-pink-500 text-5xl" /> },
-  ];
+  { name: "HTML", icon: <DiHtml5 className="text-orange-500 text-5xl" />, url: "https://developer.mozilla.org/en-US/docs/Web/HTML" },
+  { name: "CSS", icon: <DiCss3 className="text-blue-500 text-5xl" />, url: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
+  { name: "JavaScript", icon: <DiJavascript1 className="text-yellow-400 text-5xl" />, url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
+  { name: "React JS", icon: <DiReact className="text-blue-400 text-5xl" />, url: "https://react.dev/" },
+  { name: "Node JS", icon: <DiNodejs className="text-green-500 text-5xl" />, url: "https://nodejs.org/" },
+  { name: "Express JS", icon: <SiExpress className="text-gray-200 text-5xl" />, url: "https://expressjs.com/" },
+  { name: "SQL", icon: <SiMysql className="text-indigo-400 text-5xl" />, url: "https://www.mysql.com/" },
+  { name: "MongoDB", icon: <SiMongodb className="text-green-600 text-5xl" />, url: "https://www.mongodb.com/" },
+  { name: "Python", icon: <DiPython className="text-yellow-300 text-5xl" />, url: "https://www.python.org/" },
+  { name: "C++", icon: <SiCplusplus className="text-blue-600 text-5xl" />, url: "https://isocpp.org/" },
+  { name: "Figma", icon: <SiFigma className="text-pink-500 text-5xl" />, url: "https://www.figma.com/" },
+];
+
 
   const socialLinks = [
     { icon: FaInstagram, url: "https://www.instagram.com/urstruly_bhavi_7/" },
@@ -30,6 +33,25 @@ const Hero = () => {
 
   return (
     <div className="bg-[#0f1a38] text-white">
+      
+     <header className="w-full fixed top-0 left-0 z-50 bg-[#0f1a38] shadow-md">
+  <div className="max-w-7xl mx-auto px-6 md:px-24 py-4 flex justify-between items-center">
+    <motion.h1
+  initial={{ opacity: 0, y: -20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8, ease: "easeOut" }}
+  className="text-white text-2xl md:text-3xl font-bold tracking-widest font-[Josefin Sans]">
+  Portfolio
+  </motion.h1>
+    <nav className="space-x-5 hidden md:block">
+  <Link to="about" smooth={true} duration={600} className="cursor-pointer text-white hover:text-blue-400 font-small">About</Link>
+  <Link to="skills" smooth={true} duration={600} className="cursor-pointer text-white hover:text-blue-400 font-small">Skills</Link>
+  <Link to="services" smooth={true} duration={600} className="cursor-pointer text-white hover:text-blue-400 font-small">Services</Link>
+  <Link to="contact" smooth={true} duration={600} className="cursor-pointer text-white hover:text-blue-400 font-small">Contact</Link>
+</nav>
+  </div>
+</header>
+
 
       {/* HERO */}
       <section className="min-h-screen flex flex-col md:flex-row justify-between items-center px-10 md:px-24 py-20 relative overflow-hidden">
@@ -99,7 +121,7 @@ const Hero = () => {
              My work focuses on creating user-centric solutions that are not only efficient but also 
              visually engaging. I'm constantly exploring new tools and best practices to stay ahead in this 
              fast-evolving tech landscape, and I thrive in collaborative environments where innovation and 
-             problem-solving are key
+             problem-solving are key.
           </p>
         </motion.div>
         <motion.div className="grid md:grid-cols-2 gap-8" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
@@ -115,21 +137,33 @@ const Hero = () => {
       </section>
 
       {/* Skills */}
-      <section className="py-20 px-6 md:px-24">
-        <h2 className="text-center text-4xl font-bold mb-12">TECHNICAL <span className="text-blue-400">SKILLS</span></h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8">
-          {skills.map((skill, idx) => (
-            <motion.div key={idx} className="bg-[#162240] p-6 rounded-xl flex flex-col items-center justify-center shadow-md hover:shadow-blue-500/30 transition"
-              initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: idx * 0.1 }} viewport={{ once: true }}>
-              {skill.icon}
-              <h3 className="mt-4 font-semibold">{skill.name}</h3>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+      <section id="skills" className="py-20 px-6 md:px-24">
+  <h2 className="text-center text-4xl font-bold mb-12">
+    TECHNICAL <span className="text-blue-400">SKILLS</span>
+  </h2>
+  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8">
+    {skills.map((skill, idx) => (
+      <motion.a
+        key={idx}
+        href={skill.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="bg-[#162240] p-6 rounded-xl flex flex-col items-center justify-center shadow-md hover:shadow-blue-500/30 transition"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: idx * 0.1 }}
+        viewport={{ once: true }}
+      >
+        {skill.icon}
+        <h3 className="mt-4 font-semibold">{skill.name}</h3>
+      </motion.a>
+    ))}
+  </div>
+</section>
+
 
       {/* Services */}
-      <section className="py-20 px-6 md:px-24">
+      <section id="services" className="py-20 px-6 md:px-24">
         <h2 className="text-center text-4xl font-bold mb-12">MY <span className="text-blue-400">SERVICES</span></h2>
         <div className="grid md:grid-cols-3 gap-10">
           {[
