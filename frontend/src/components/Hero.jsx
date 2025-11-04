@@ -56,7 +56,7 @@ const Hero = () => {
     {
       title: "Rock Paper Scissor Game",
       desc: "A simple interactive game where players choose rock, paper, or scissors to compete against the computer.",
-      url: "https://github.com/bhavendra-kumar/RockPaperScissor_Game.git",
+      url: "https://rpseasygame.netlify.app/",
       img: RockPaperScissor
     },
     {
